@@ -2,14 +2,17 @@
   "name": "job-finder",
   "version": "1.0.0",
   "description": "This is a portal web application for developers to find job openings",
-  "main": "build/app.js",
+  "main": "build/server.js",
+  "private": true,
   "engines": {
     "node": ">=20"
   },
   "scripts": {
     "start": "node --env-file=.env build/server.js",
     "dev": "tsx watch --clear-screen=false --env-file=.env src/server.ts",
-    "build": "tsup src --out-dir build"
+    "build": "tsup src --out-dir build",
+    "lint": "eslint src --fix",
+    "prepare": "husky"
   },
   "keywords": [
     "dev",
@@ -22,6 +25,8 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.19.2",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.4",
     "pg": "^8.11.5",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.3",
@@ -47,5 +52,9 @@
   "bugs": {
     "url": "https://github.com/wesleyfreit/job-finder/issues"
   },
-  "homepage": "https://github.com/wesleyfreit/job-finder#readme"
+  "homepage": "https://github.com/wesleyfreit/job-finder#readme",
+  "lint-staged": {
+    "**/*.{ts,tsx,d.ts}": "eslint src --fix",
+    "**/*.{json,config.*,md}": "prettier --write"
+  }
 }

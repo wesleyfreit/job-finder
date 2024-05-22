@@ -9,3 +9,6 @@ build/
 
 # Test Coverage
 coverage/
+
+# VSCode Directory
+.vscode/

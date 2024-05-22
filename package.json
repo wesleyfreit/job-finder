@@ -11,6 +11,7 @@
     "start": "node --env-file=.env build/server.js",
     "dev": "tsx watch --clear-screen=false --env-file=.env src/server.ts",
     "build": "tsup src --out-dir build",
+    "db": "tsx --env-file=.env src/db/migration.ts",
     "lint": "eslint src --fix",
     "prepare": "husky"
   },

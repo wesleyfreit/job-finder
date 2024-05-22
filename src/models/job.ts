@@ -23,6 +23,10 @@ export const Job = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     contact: {
       type: DataTypes.STRING,
       allowNull: false,

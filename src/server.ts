@@ -1,20 +1,14 @@
 import express from 'express';
 import { env } from './env';
-import { sequelize } from './lib/sequelize';
+import { router as usersRoutes } from './controllers/users/routes';
 
 const app = express();
 
 const port = env.PORT;
 
-(async () => {
-  try {
-    await sequelize.authenticate();
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
-  }
-})();
-
 app.use(express.json());
+
+app.use(usersRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');

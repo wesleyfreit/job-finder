@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entrar | Job Finder</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body class="user-select-none">
+    <main class="container">
+      <img src="/assets/banner.jpg" alt="banner" width="400" />
+    </main>
+
+    <aside class="form-container">
+      <h3 id="page-title">Entrar</h3>
+
+      <form method="post" id="auth-form" action="/login">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            id="email"
+            placeholder="Seu e-mail"
+            title="Digite um email válido"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            id="password"
+            placeholder="Sua senha"
+            title="Digite um email válido"
+            required
+          />
+        </div>
+
+        <button id="button-submit" type="submit">Entrar</button>
+      </form>
+
+      <span>
+        Não têm uma conta?
+        <a href="/register">Criar conta!</a>
+      </span>
+    </aside>
+  </body>
+</html>

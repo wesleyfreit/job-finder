@@ -1,12 +1,16 @@
 import express from 'express';
-import { env } from './env';
 import { router as usersRoutes } from './controllers/users/routes';
+import { env } from './env';
 
 const app = express();
 
 const port = env.PORT;
 
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views');
+
 app.use(express.json());
+app.use(express.static('public'));
 
 app.use(usersRoutes);
 

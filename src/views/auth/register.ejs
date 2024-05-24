@@ -6,61 +6,80 @@
     <title>Criar conta | Job Finder</title>
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
-  <body class="user-select-none">
-    <main class="container">
-      <img src="/assets/banner.jpg" alt="banner" width="400" />
-    </main>
+  <body>
+    <div class="auth-container">
+      <main>
+        <img src="/assets/banner.jpg" alt="banner" />
+      </main>
 
-    <aside class="form-container">
-      <h3 id="page-title">Criar conta</h3>
+      <aside>
+        <div class="form-container">
+          <h3 id="page-title">Criar conta</h3>
 
-      <form method="post" id="auth-form" action="/register">
-        <div class="form-group">
-          <label for="name">Nome</label>
-          <input
-            type="text"
-            class="form-control"
-            name="name"
-            id="name"
-            placeholder="Seu nome"
-            title="Digite o nome completo"
-            required
-          />
+          <span>
+            Já têm uma conta?
+            <a href="/login">Faça login!</a>
+          </span>
+
+          <form method="post" id="auth-form" action="/register">
+            <div class="form-group">
+              <label for="name">Nome</label>
+              <input
+                type="text"
+                class="form-control"
+                name="name"
+                id="name"
+                placeholder="Seu nome"
+                title="Digite o nome completo"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                placeholder="Seu e-mail"
+                min="6"
+                title="Digite um email válido"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Senha</label>
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                id="password"
+                placeholder="Crie uma senha"
+                min="6"
+                title="Digite uma senha válida"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Repetir senha</label>
+              <input
+                type="repeat-password"
+                class="form-control"
+                name="repeat- password"
+                id="repeat-password"
+                placeholder="Confirme sua senha"
+                title="Confirme a senha digitada"
+                required
+              />
+            </div>
+
+            <button id="button-submit" type="submit">Criar conta</button>
+          </form>
         </div>
-
-        <div class="form-group">
-          <label for="email">E-mail</label>
-          <input
-            type="email"
-            class="form-control"
-            name="email"
-            id="email"
-            placeholder="Seu e-mail"
-            title="Digite um email válido"
-            required
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="password">Senha</label>
-          <input
-            type="password"
-            class="form-control"
-            name="password"
-            id="password"
-            placeholder="Crie uma senha"
-            title="Digite um email válido"
-            required
-          />
-        </div>
-
-        <button id="button-submit" type="submit">Criar conta</button>
-      </form>
-
-      <span>
-        Já têm uma conta?
-        <a href="/login">Faça login!</a>
-      </span>
-    </aside>
+      </aside>
+    </div>
   </body>
 </html>

@@ -28,5 +28,5 @@
       "@typescript-eslint/parser": [".ts", ".d.ts"]
     }
   },
-  "ignorePatterns": ["node_modules/", "build/"]
+  "ignorePatterns": ["node_modules/", "build/", "*.js"]
 }

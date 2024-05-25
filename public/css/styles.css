@@ -1,13 +1,13 @@
 :root {
   --primary-color: #00adef;
-  --primary-color-medium: #0091c9;
-  --primary-color-dark: #0077a3;
+  --primary-color-hover: #0091c9;
+  --primary-color-active: #007aa9;
   --secondary-color: #12a844;
-  --secondary-color-medium: #0f8a2d;
-  --secondary-color-dark: #0c6c32;
+  --secondary-color-hover: #0f8a2d;
+  --secondary-color-active: #0c6c32;
   --destructive-color: #ec311c;
-  --destructive-color-medium: #d42a17;
-  --destructive-color-dark: #b31a08;
+  --destructive-color-hover: #d42a17;
+  --destructive-color-active: #b31a08;
   --border-color: #b5beda;
   --text-color-dark: #000000;
   --text-color-light: #ffffff;
@@ -57,12 +57,33 @@
   overflow: hidden;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.auth-container main img {
+.banner-container {
+  animation: pulse 2s infinite;
+}
+
+.banner-container img {
   width: 500px;
   object-fit: cover;
-  animation: pulse 2s infinite;
+}
+
+.banner-container div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.banner-container div h1 {
+  font-size: 4.5rem;
+  font-weight: 900;
+}
+
+.banner-container div h1:first-child {
+  color: var(--primary-color);
 }
 
 .auth-container aside {
@@ -85,20 +106,21 @@
 }
 
 .form-container span {
-  color: var(--text-color-dark);
+  color: var(--text-color-active);
 }
 
 .form-container span a {
   color: var(--primary-color);
   font-weight: 600;
+  transition: color 0.3s;
 }
 
 .form-container span a:hover {
-  color: var(--primary-color-medium);
+  color: var(--primary-color-hover);
 }
 
 .form-container span a:active {
-  color: var(--primary-color-dark);
+  color: var(--primary-color-active);
 }
 
 .form-container form {
@@ -125,6 +147,7 @@
   border: 1px solid var(--border-color);
   outline: none;
   font-size: medium;
+  transition: border 0.3s;
 }
 
 .form-control:focus {
@@ -140,14 +163,15 @@
   border: 0;
   border-radius: 10px;
   padding: 8px 12px;
+  transition: background 0.3s;
 }
 
 #button-submit:hover {
-  background-color: var(--primary-color-medium);
+  background-color: var(--primary-color-hover);
 }
 
 #button-submit:active {
-  background-color: var(--primary-color-dark);
+  background-color: var(--primary-color-active);
 }
 
 #button-submit:focus {

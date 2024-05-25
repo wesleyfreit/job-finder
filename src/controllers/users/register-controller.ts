@@ -5,11 +5,18 @@ import { UserAlreadyExistsError } from '../../errors/user-already-exists-error';
 import { User } from '../../models/user';
 
 export const register = async (req: Request, res: Response) => {
-  const registerBodySchema = z.object({
-    name: z.string(),
-    email: z.string().email(),
-    password: z.string().min(6),
-  });
+  console.log(req.body);
+  const registerBodySchema = z
+    .object({
+      name: z.string(),
+      email: z.string().email(),
+      password: z.string().min(6),
+      confirm_password: z.string().min(6),
+    })
+    .refine((data) => data.password === data.confirm_password, {
+      message: 'Passwords do not match',
+      path: ['repeat_password'],
+    });
 
   const { name, email, password } = registerBodySchema.parse(req.body);
 
@@ -32,9 +39,7 @@ export const register = async (req: Request, res: Response) => {
       password_hash,
     });
 
-    return res.status(201).send({
-      info: 'Account has been created',
-    });
+    return res.status(201).render('login');
   } catch (error) {
     if (error instanceof UserAlreadyExistsError) {
       return res.status(409).send({ error: error.message });

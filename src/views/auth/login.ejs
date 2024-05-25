@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Entrar | Job Finder</title>
     <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <div class="auth-container">
       <main>
-        <img src="/assets/banner.jpg" alt="banner" />
+        <div class="banner-container">
+          <img src="/assets/banner.png" alt="banner" />
+          <div>
+            <h1>Job</h1>
+            <h1>Finder</h1>
+          </div>
+        </div>
       </main>
 
       <aside>
@@ -21,7 +28,7 @@
             <a href="/register">Criar conta!</a>
           </span>
 
-          <form method="post" id="auth-form" action="/login">
+          <form method="post" id="login-form" action="/sessions">
             <div class="form-group">
               <label for="email">E-mail</label>
               <input
@@ -43,7 +50,7 @@
                 name="password"
                 id="password"
                 placeholder="Sua senha"
-                min="6"
+                minlength="6"
                 title="Digite uma senha válida"
                 required
               />

@@ -5,11 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Criar conta | Job Finder</title>
     <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <div class="auth-container">
       <main>
-        <img src="/assets/banner.jpg" alt="banner" />
+        <div class="banner-container">
+          <img src="/assets/banner.png" alt="banner" />
+          <div>
+            <h1>Job</h1>
+            <h1>Finder</h1>
+          </div>
+        </div>
       </main>
 
       <aside>
@@ -21,7 +28,7 @@
             <a href="/login">Faça login!</a>
           </span>
 
-          <form method="post" id="auth-form" action="/register">
+          <form method="post" id="register-form" action="/users">
             <div class="form-group">
               <label for="name">Nome</label>
               <input
@@ -57,7 +64,7 @@
                 name="password"
                 id="password"
                 placeholder="Crie uma senha"
-                min="6"
+                minlength="6"
                 title="Digite uma senha válida"
                 required
               />
@@ -66,11 +73,12 @@
             <div class="form-group">
               <label for="password">Repetir senha</label>
               <input
-                type="repeat-password"
+                type="password"
                 class="form-control"
-                name="repeat- password"
-                id="repeat-password"
+                name="confirm_password"
+                id="confirm_password"
                 placeholder="Confirme sua senha"
+                minlength="6"
                 title="Confirme a senha digitada"
                 required
               />
@@ -81,5 +89,6 @@
         </div>
       </aside>
     </div>
+    <script src="/lib/does-password-matches.js"></script>
   </body>
 </html>

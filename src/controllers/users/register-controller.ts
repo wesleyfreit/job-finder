@@ -39,7 +39,7 @@ export const register = async (req: Request, res: Response) => {
       password_hash,
     });
 
-    return res.status(201).render('login');
+    return res.status(201).redirect('/login');
   } catch (error) {
     if (error instanceof UserAlreadyExistsError) {
       return res.status(409).send({ error: error.message });

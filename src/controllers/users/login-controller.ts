@@ -32,18 +32,17 @@ export const login = async (req: Request, res: Response) => {
     }
 
     const token = jwt.sign({}, env.JWT_SECRET, {
-      expiresIn: '1h',
+      expiresIn: 3600,
       subject: user.dataValues.id,
     });
 
-    return res.status(200).send({
-      user: {
-        id: user.dataValues.id,
-        name: user.dataValues.name,
-        email: user.dataValues.email,
-      },
-      token,
-    });
+    const tokenBearer = `Bearer ${token}`;
+
+    res.cookie('@job-finder:token', tokenBearer, { maxAge: 3600000 });
+
+    res.set('Authorization', tokenBearer);
+
+    return res.redirect('/');
   } catch (error) {
     if (error instanceof InvalidCredentialsError) {
       return res.status(401).send({ error: error.message });

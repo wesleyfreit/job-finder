@@ -5,7 +5,6 @@ import { UserAlreadyExistsError } from '../../errors/user-already-exists-error';
 import { User } from '../../models/user';
 
 export const register = async (req: Request, res: Response) => {
-  console.log(req.body);
   const registerBodySchema = z
     .object({
       name: z.string(),

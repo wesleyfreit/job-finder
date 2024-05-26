@@ -42,7 +42,19 @@ export const login = async (req: Request, res: Response) => {
 
     res.set('Authorization', tokenBearer);
 
-    return res.redirect('/');
+    req.session.user = {
+      id: user.dataValues.id,
+      name: user.dataValues.name,
+      email: user.dataValues.email,
+    };
+
+    req.session.save((err) => {
+      if (err) {
+        throw err;
+      }
+
+      return res.redirect('/');
+    });
   } catch (error) {
     if (error instanceof InvalidCredentialsError) {
       return res.status(401).send({ error: error.message });

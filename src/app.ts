@@ -5,6 +5,7 @@ import session from 'express-session';
 import { router as usersRoutes } from './controllers/users/routes';
 import { env } from './env';
 import { sequelize } from './lib/sequelize';
+import { setLocals } from './middlewares/set-locals';
 
 export const app = express();
 
@@ -34,9 +35,11 @@ app.use(
   }),
 );
 
-sessionStore.sync();
+sessionStore.sync({ logging: false });
 
 app.use(cookieParser());
+
+app.use(setLocals);
 
 app.use(usersRoutes);
 
